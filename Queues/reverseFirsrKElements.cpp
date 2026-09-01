@@ -1,17 +1,20 @@
 class Solution {
-  public:
+public:
     queue<int> reverseFirstK(queue<int> q, int k) {
-        // code here
+
+        if (k > q.size())
+            return q;
+
         stack<int> s;
         int n = q.size();
 
-        // Reverse first k elements
+        // Take first k elements
         for (int i = 0; i < k; i++) {
             s.push(q.front());
             q.pop();
         }
 
-        // Put reversed elements back
+        // Put them back in reverse order
         while (!s.empty()) {
             q.push(s.top());
             s.pop();
